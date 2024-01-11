@@ -1,0 +1,107 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="/static/css/main.css">
+         <link rel="stylesheet" href="/static/css/nav.css">
+    </head>
+    <body>
+        <ul class="nav-ul">
+            <li class="nav-li"><a class="nav-a" href="/">Home</a></li>
+            <li class="nav-li"><a class="nav-a" href="/">{{user.u_name}}</a></li>
+            <li class="nav-li" style="float:right">
+            <form id="logout-form"action="/logout" method="POST"><a 
+             onclick="document.getElementById('logout-form').submit();"
+            class="nav-a">Logout</a></form></li>
+          </ul>
+
+          <br><br>
+
+            <div class="card">
+
+                <div class="title">Recomendation</div>
+            
+                <div class="icon" style="text-align: center;">
+                <!--svg enable-background="new 0 0 512 512" height="512px" id="Layer_1" version="1.1" viewBox="0 0 512 512" width="512px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M468.493,101.637L371.955,5.098H159.57v77.231H43.724v424.769h308.923v-77.231h115.846V101.637z   M371.955,32.401l69.236,69.235h-69.236V32.401z M63.031,487.79V101.637h173.769v96.538h96.538V487.79H63.031z M256.108,109.632  l69.236,69.235h-69.236V109.632z M352.647,410.56V178.867l-96.538-96.538h-77.231V24.406h173.769v96.538h96.538V410.56H352.647z" fill="#37404D"/>
+                </svg -->
+                <svg fill="#000000" height="200px" width="200px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 196.979 196.979" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <path d="M43.48,0C28.1,0.003,15.588,12.517,15.588,27.896v141.188c0,15.38,12.512,27.894,27.893,27.896h131.66 c3.452,0,6.25-2.798,6.25-6.25v-21.646v-21.646V49.542V6.25c0-3.452-2.798-6.25-6.25-6.25H43.48z M43.481,12.5h125.41v37.042 v91.645H43.48c-5.687,0.001-10.978,1.716-15.392,4.649V27.896C28.088,19.408,34.994,12.501,43.481,12.5z M168.891,184.479H43.482 c-8.488-0.001-15.394-6.908-15.394-15.396c0-8.488,6.905-15.395,15.393-15.396h125.41v9.146h-98.41c-3.452,0-6.25,2.798-6.25,6.25 c0,3.452,2.798,6.25,6.25,6.25h98.41V184.479z"></path> <path d="M73.496,87.7v23.664c0,3.452,2.798,6.25,6.25,6.25h37.486c3.452,0,6.25-2.798,6.25-6.25V87.701 c8.258-3.315,13.982-11.413,13.982-20.669c0-11.935-9.437-21.706-21.24-22.244c-4.161-5.506-10.644-8.791-17.734-8.791 c-7.093,0-13.575,3.285-17.735,8.791c-11.804,0.538-21.241,10.31-21.241,22.244C59.514,76.289,65.239,84.386,73.496,87.7z M81.782,57.265c0.473,0,0.954,0.035,1.433,0.105c2.686,0.397,5.313-0.986,6.512-3.418c1.661-3.364,5.02-5.455,8.765-5.455 c3.744,0,7.103,2.091,8.766,5.457c1.2,2.432,3.839,3.811,6.513,3.416c0.476-0.07,0.956-0.105,1.429-0.105 c5.386,0,9.768,4.382,9.768,9.768c0,4.905-3.663,9.069-8.52,9.685c-3.122,0.396-5.463,3.053-5.463,6.2v22.196H85.996V83.331 c0-0.007,0.001-0.015,0.001-0.021c0.207-3.293-2.182-6.18-5.455-6.593c-4.862-0.613-8.528-4.776-8.528-9.685 C72.014,61.646,76.396,57.265,81.782,57.265z"></path> </g> </g></svg>
+                </div><!--/icon-->
+            
+                <div class="features">
+                <ul>
+                    <h3><li><span>Recipie recomendation</span></li></h3>
+                    <li><span>Embark on a culinary adventure with our handpicked recipes! Click now to discover delightful dishes, step-by-step instructions, and tantalizing flavors. Whether you're a cooking enthusiast or a novice in the kitchen, our curated collection caters to all tastes and skill levels. From savory main courses to indulgent desserts, we've got you covered. Unlock the secrets of gastronomic excellence and elevate your home cooking experience. Join us on this gastronomic journey by clicking below. Get ready to transform ordinary ingredients into extraordinary meals that will leave your taste buds dancing. Let the cooking escapade begin!</span></li>
+                </ul>
+                </div><!--/features-->
+            
+                <a href="/recomendation" class="btn">Goto Recipie recomendation(Text)</a>
+                <a href="/image_recognization" class="btn">Goto Recipie recomendation (Image Recognization)</a>
+            
+            </div><!--/card-->
+
+            <div class="card">
+                <div class="title">Planning</div>
+            
+                <div class="icon" style="text-align: center;">
+                <!--svg enable-background="new 0 0 512 512" height="512px" id="Layer_1" version="1.1" viewBox="0 0 512 512" width="512px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M468.493,101.637L371.955,5.098H159.57v77.231H43.724v424.769h308.923v-77.231h115.846V101.637z   M371.955,32.401l69.236,69.235h-69.236V32.401z M63.031,487.79V101.637h173.769v96.538h96.538V487.79H63.031z M256.108,109.632  l69.236,69.235h-69.236V109.632z M352.647,410.56V178.867l-96.538-96.538h-77.231V24.406h173.769v96.538h96.538V410.56H352.647z" fill="#37404D"/>
+                </svg -->
+                <svg fill="#5616C5" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g id="Meal_application_tracking"> <path d="M439.3416,12.4191h-185.78a31.2327,31.2327,0,0,0-31.2324,31.2327v96.3553h-21.108A34.9619,34.9619,0,0,0,166.2981,174.93v40.0767a6,6,0,0,0,12,0V174.93a22.9485,22.9485,0,0,1,22.9228-22.9224h21.108V311.64q-1.7213.2452-3.3179.5393c-6.2153-6.4845-14.8652-9.2832-22.1841-10.4251,6.4658-10.9819,8.1758-25.2519,4.1846-36.3862-3.6221-10.1055-11.292-17.1094-22.1817-20.2549-18.9052-5.4619-28.8838,2.4614-33.6845,9.0889-6.6739-8.21-16.5918-10.3037-27.5967-5.7027l-.336.1529c-13.3593,6.5766-19.6425,19.3891-17.8906,36.28-7.1152-2.5962-17.6963-3.8252-31.42,1.8037-13.7256,5.628-22.5117,17.6465-23.5029,32.1485a39.5224,39.5224,0,0,0,19.9541,36.9927c.4428.2567.8637.5262,1.2959.7891-21.1641,6.6062-24.2237,13.7118-24.2237,19.0053v.5391A43,43,0,0,0,68.39,416.0623c14.5371,5.9439,40.5039,20.207,51.0732,48.95.4688,1.2735,1.2783,3.8311,1.6895,5.1524,1.4394,9.1831,11.5117,16.5708,29.9541,21.9638,16.4326,4.8062,37.9844,7.4527,60.6855,7.4527,41.0606,0,86.6817-9.0533,90.5694-28.916.5058-1.6172,1.6494-5.1827,2.3242-6.8931a74.49,74.49,0,0,1,13.2422-21.5893H439.3416A31.2327,31.2327,0,0,0,470.5745,410.95V43.6518A31.2328,31.2328,0,0,0,439.3416,12.4191ZM364.8684,28.0359h11.29a6,6,0,1,1,0,12h-11.29a6,6,0,0,1,0-12Zm-48.124,0H344.97a6,6,0,1,1,0,12H316.7444a6,6,0,0,1,0-12ZM279.24,332.6134q2.2917.5544,4.4771,1.1686c11.8774,3.35,17.7216,6.9918,19.9443,8.9645-1.9487,1.8809-7.1279,5.324-17.8687,8.4654-12.9741,3.7944-29.6919,5.8841-47.0752,5.8841s-34.101-2.09-47.0752-5.8841c-10.7407-3.1414-15.92-6.5845-17.8686-8.4654,2.2226-1.9727,8.0669-5.6146,19.9443-8.9645.74-.2086,1.5059-.4036,2.2661-.6016,6.8531,5.4831,22.7666,9.3291,41.3023,9.3291C256.4534,342.51,272.803,338.396,279.24,332.6134ZM241.57,325.6089c0-2.9066,5.2173-5.263,11.6533-5.263s11.6543,2.3564,11.6543,5.263-5.2178,5.263-11.6543,5.263S241.57,328.5156,241.57,325.6089ZM127.3191,368.19a18.88,18.88,0,0,1,6.5342-14.455,39.2209,39.2209,0,0,1,27.3628-9.4841c1.7011,8.9982,16.4712,16.7744,37.8916,21.129-9.9883,8.1816-23.1563,13.42-33.8462,16.6132l-37.2437-.1947C127.5847,377.1359,127.3479,372.5868,127.3191,368.19ZM56.3718,319.7025a25.2016,25.2016,0,0,1,16.083-21.8638c9.4112-3.8579,17.7159-4.1367,24.6778-.8272a10.1966,10.1966,0,0,0,14.457-10.7861c-2.0693-13.1177,1.55-22.1079,10.7588-26.7256,6.5371-2.6846,10.9678-1.6118,14.3594,3.4595a10.2118,10.2118,0,0,0,17.2832-.3906c4.1523-6.97,11.1865-8.9087,21.5088-5.9273,7.1328,2.0606,11.916,6.3589,14.2158,12.7759,3.0029,8.3784,1.23,19.8745-4.3135,27.9546a10.2029,10.2029,0,0,0,7.3,15.94,37.2084,37.2084,0,0,1,11.8789,3.1206,33.2476,33.2476,0,0,0-7.2871,4.0612c-12.9487,2.9707-23.7959,7.2148-30.1611,12.1993-15.003-1.9026-26.4493,2.0069-34.648,7.137a1.6217,1.6217,0,0,1-2.4433-1.6884c5.7334-30.2784,18.52-48.9361,18.789-49.3107a6.0054,6.0054,0,0,0-9.81-6.93c-.752,1.0662-11.4283,16.488-18.2061,42.1328a2.0514,2.0514,0,0,1-3.5234.8351A46.1471,46.1471,0,0,0,94.57,310.7713a6,6,0,0,0-2.58,11.72,34.6912,34.6912,0,0,1,22.5893,20.552,19.098,19.098,0,0,1,1.3555,8.9356,169.584,169.584,0,0,0,.0235,29.756l-14.0767-.0736a95.1877,95.1877,0,0,0-10.48-17.9711,69.464,69.464,0,0,0-21.0293-18.1938A27.5986,27.5986,0,0,1,56.3718,319.7025Zm237.1524,139.665c-1.042,2.6411-2.9248,8.916-2.9248,8.916-1.0821,6.7344-29.1006,19.2974-78.8067,19.2974-21.5927,0-41.9492-2.4751-57.3174-6.97-16.4267-4.8038-21.2353-10.2266-21.4834-12.4229,0,0-1.5136-5.2715-2.2656-7.3164-12.1582-33.063-41.4287-49.2251-57.7949-55.9165a31.0451,31.0451,0,0,1-19.5059-28.7441v-.3179c.877-1.6726,6.812-5.76,24.0078-10.0329a49.1748,49.1748,0,0,1,4.3672,5.0275,77.0083,77.0083,0,0,1,5.3472,8.181A89.8192,89.8192,0,0,1,75.491,375.88a6,6,0,1,0-4.1328,11.2656c21.1865,7.7715,78.6962,13.1992,139.8535,13.1992,56.96,0,111.9424-4.6723,136.8174-11.6264a6,6,0,0,0-3.2305-11.5567,197.6616,197.6616,0,0,1-24.085,4.6692,130.0606,130.0606,0,0,0-30.2749-19.4894,85.3325,85.3325,0,0,0,10.6006-3.9584c7.7783.8588,15.1694,1.832,22.064,2.9217,35.3906,5.5942,45.8652,12.3174,47.0556,14.5884v.3179a31.0449,31.0449,0,0,1-19.5068,28.7441C334.7732,411.4471,306.2371,427.1492,293.5242,459.3675ZM454.1863,406.56a17.95,17.95,0,0,1-17.95,17.95H338.8284a107.7233,107.7233,0,0,1,16.3647-8.4481,43,43,0,0,0,26.9658-39.8515v-.5391c0-7.1167-5.5088-17.5093-53.1416-25.56-4.5376-.7669-9.3154-1.477-14.2627-2.1417a10.413,10.413,0,0,0,1.6475-5.4606c0-9.8042-17.6719-18.3656-40.7437-22.9746l-.0019-.0011s-11.6148-8.3024-36.9395-8.8164V247.8856h28.8872a37.4185,37.4185,0,0,0,73.1133,3.551,5.825,5.825,0,0,0-5.68-7.2453h-.3194a5.8955,5.8955,0,0,0-5.6636,4.4035,25.4166,25.4166,0,1,1-29.3808-31.6574,5.9126,5.9126,0,0,0,4.8711-5.7656v-.3026a5.8542,5.8542,0,0,0-6.9273-5.7552,37.5127,37.5127,0,0,0-30.0083,30.7716H238.717V152.0071h28.9322a37.4161,37.4161,0,0,0,73.0683,3.3031,5.825,5.825,0,0,0-5.68-7.2453h-.3194a5.8955,5.8955,0,0,0-5.6636,4.4035,25.4166,25.4166,0,1,1-29.3808-31.6574,5.9126,5.9126,0,0,0,4.8711-5.7656v-.3026a5.8543,5.8543,0,0,0-6.9273-5.7553,37.5086,37.5086,0,0,0-30.0439,31.02H238.717V72.7339a17.95,17.95,0,0,1,17.95-17.95H436.2361a17.95,17.95,0,0,1,17.95,17.95Z"></path> <path d="M335.0784,211.971c-13.7412,5.7588-25.003,17.39-31.36,25.063l-4.1943-5.1108a7,7,0,0,0-10.8223,8.8808l9.8135,11.9585a7,7,0,0,0,5.4121,2.5562c.1143,0,.2295-.003.3447-.0083a7.0092,7.0092,0,0,0,5.4795-3.106c.1338-.2007,13.5977-20.1377,30.7393-27.3213a7,7,0,0,0-5.4121-12.9121Z"></path> <path d="M335.0784,116.1155c-13.7412,5.7588-25.003,17.39-31.36,25.0635l-4.1943-5.1113a7,7,0,0,0-10.8223,8.8808l9.8135,11.959a7,7,0,0,0,5.4121,2.5562c.1143,0,.2295-.0029.3447-.0083a7.0092,7.0092,0,0,0,5.4795-3.106c.1338-.2007,13.5977-20.1382,30.7393-27.3218a7,7,0,0,0-5.4121-12.9121Z"></path> <path d="M423.137,128.2747H364.8684a6,6,0,0,0,0,12H423.137a6,6,0,0,0,0-12Z"></path> <path d="M423.137,153.6868H364.8684a6,6,0,0,0,0,12H423.137a6,6,0,0,0,0-12Z"></path> <path d="M423.137,222.5291H364.8684a6,6,0,0,0,0,12H423.137a6,6,0,0,0,0-12Z"></path> <path d="M423.137,247.9412H364.8684a6,6,0,0,0,0,12H423.137a6,6,0,1,0,0-12Z"></path> </g> </g></svg>
+                </div><!--/icon-->
+            
+                <div class="features">
+                <ul>
+                    <h3><li><span>Meal Planning</span></li></h3>
+                    <li><span>Elevate your meal planning with our curated collection of delicious and nutritious recipes! Click now to access a variety of meal ideas, tailored to your taste and dietary preferences. Discover easy-to-follow plans, weekly menus, and expert tips to streamline your cooking routine. Whether you're aiming for a healthier lifestyle, weight management, or simply seeking culinary inspiration, we've got the perfect meal plan for you. Take the guesswork out of your daily meals and embark on a journey towards balanced and satisfying eating. Click below to revolutionize your meal planning experience and enjoy a week of delightful, stress-free dining</span></li>
+                </ul>
+                </div><!--/features-->
+            
+                <a href="/meal_planning" class="btn">Goto Meal Planning</a>
+            </div><!--/card-->
+
+            <div class="card">
+                <div class="title">Management</div>
+            
+                <div class="icon" style="text-align: center;">
+                <!--svg enable-background="new 0 0 512 512" height="512px" id="Layer_1" version="1.1" viewBox="0 0 512 512" width="512px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M468.493,101.637L371.955,5.098H159.57v77.231H43.724v424.769h308.923v-77.231h115.846V101.637z   M371.955,32.401l69.236,69.235h-69.236V32.401z M63.031,487.79V101.637h173.769v96.538h96.538V487.79H63.031z M256.108,109.632  l69.236,69.235h-69.236V109.632z M352.647,410.56V178.867l-96.538-96.538h-77.231V24.406h173.769v96.538h96.538V410.56H352.647z" fill="#37404D"/>
+                </svg -->
+                <svg fill="#5616C5" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 256 253" enable-background="new 0 0 256 253" xml:space="preserve" stroke="#5616C5"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M176.124,168.694c0,10.138-2.897,16.809-7.066,24.973c-7.417,12.464-12.201,19.838-14.396,21.988l-0.527,0.571 c-3.599,3.423-7.593,5.223-11.938,5.223c-5.969,0-10.709-2.546-14.132-6.934h-0.176c-3.467,4.389-8.119,6.934-14.088,6.934 c-4.345,0-8.295-1.843-11.938-5.267l-0.527-0.527c-2.151-2.151-6.978-9.48-14.396-21.988c-4.169-8.163-7.066-14.834-7.066-24.973 c0-7.768,2.765-14.439,8.251-19.969c5.53-5.53,12.201-8.251,19.969-8.251c7.812,0,14.308,2.502,19.75,8.207h0.176 c5.442-5.706,12.026-8.207,19.838-8.207s14.439,2.721,19.969,8.251C173.359,154.254,176.124,160.881,176.124,168.694z M169.365,170.713c0.263-5.574-1.756-10.972-5.706-15.142c-4.213-4.433-10.138-6.978-16.283-6.978c-1.492,0-2.677,1.185-2.677,2.677 s1.185,2.677,2.677,2.677c4.652,0,9.173,1.931,12.377,5.311c2.984,3.116,4.477,7.066,4.257,11.192 c-0.176,3.643-1.448,7.944-3.818,12.728c-0.658,1.317-0.088,2.897,1.229,3.555c0.395,0.176,0.79,0.263,1.185,0.263 c1.009,0,1.931-0.527,2.414-1.492C167.697,180.061,169.146,175.058,169.365,170.713z M144.217,134.768 c-3.292,2.326-16.239,10.446-16.239,10.446l-6.891-27.869l5.749-4.082l3.774,16.546c0.878-9.656,6.847-14.308,21.242-19.179 C153.565,122.742,152.073,129.018,144.217,134.768z M2,69c0,13.678,9.625,25.302,22,29.576V233H2v18h252v-18h-22V98.554 c12.89-3.945,21.699-15.396,22-29.554v-8H2V69z M65.29,68.346c0,6.477,6.755,31.47,31.727,31.47 c21.689,0,31.202-19.615,31.202-31.47c0,11.052,7.41,31.447,31.464,31.447c21.733,0,31.363-20.999,31.363-31.447 c0,14.425,9.726,26.416,22.954,30.154V233H42V98.594C55.402,94.966,65.29,82.895,65.29,68.346z M222.832,22H223V2H34v20L2,54h252 L222.832,22z"></path> </g></svg>
+               </div><!--/icon-->
+            
+                <div class="features">
+                <ul>
+                    <h3><li><span>Inventory Management</span></li></h3>
+                    <li><span>Welcome to Grocesser Manager: Your Ultimate Grocery Management Solution! Seamlessly integrate devices with our user-friendly API. Simply add your devices, copy the API key to your IoT device, and enjoy real-time updates on your inventory. Effortlessly track stock levels, manage expiration dates, and streamline your grocery shopping. Whether you're at home or on the go, stay connected with your pantry. Experience the power of smart grocery management with Grocesser Manager. Click below to start the journey towards a well-organized and connected kitchen. Take control of your inventory like never before!</span></li>
+                </ul>
+                </div><!--/features-->
+            
+                <a href="/inventory" class="btn">Goto Inventory Management</a>
+            </div><!--/card-->
+
+            <div class="card">
+                <div class="title">Notification</div>
+            
+                <div class="icon" style="text-align: center;">
+                <!--svg enable-background="new 0 0 512 512" height="512px" id="Layer_1" version="1.1" viewBox="0 0 512 512" width="512px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M468.493,101.637L371.955,5.098H159.57v77.231H43.724v424.769h308.923v-77.231h115.846V101.637z   M371.955,32.401l69.236,69.235h-69.236V32.401z M63.031,487.79V101.637h173.769v96.538h96.538V487.79H63.031z M256.108,109.632  l69.236,69.235h-69.236V109.632z M352.647,410.56V178.867l-96.538-96.538h-77.231V24.406h173.769v96.538h96.538V410.56H352.647z" fill="#37404D"/>
+                </svg -->
+                <svg viewBox="-1.5 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#5616C5"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>notification_bell [#1397]</title> <desc>Created with Sketch.</desc> <defs> </defs> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="Dribbble-Light-Preview" transform="translate(-181.000000, -720.000000)" fill="#5616C5"> <g id="icons" transform="translate(56.000000, 160.000000)"> <path d="M137.75,574 L129.25,574 L129.25,568 C129.25,565.334 131.375,564 133.498937,564 L133.501063,564 C135.625,564 137.75,565.334 137.75,568 L137.75,574 Z M134.5625,577 C134.5625,577.552 134.0865,578 133.5,578 C132.9135,578 132.4375,577.552 132.4375,577 L132.4375,576 L134.5625,576 L134.5625,577 Z M140.9375,574 C140.351,574 139.875,573.552 139.875,573 L139.875,568 C139.875,564.447 137.359,562.475 134.5625,562.079 L134.5625,561 C134.5625,560.448 134.0865,560 133.5,560 C132.9135,560 132.4375,560.448 132.4375,561 L132.4375,562.079 C129.641,562.475 127.125,564.447 127.125,568 L127.125,573 C127.125,573.552 126.649,574 126.0625,574 C125.476,574 125,574.448 125,575 C125,575.552 125.476,576 126.0625,576 L130.3125,576 L130.3125,577 C130.3125,578.657 131.739438,580 133.5,580 C135.260563,580 136.6875,578.657 136.6875,577 L136.6875,576 L140.9375,576 C141.524,576 142,575.552 142,575 C142,574.448 141.524,574 140.9375,574 L140.9375,574 Z" id="notification_bell-[#1397]"> </path> </g> </g> </g> </g></svg>
+                </div><!--/icon-->
+            
+                <div class="features">
+                <ul>
+                    <h3><li><span>Name: </span></li></h3>
+                    <li><span>Stay up to date and ensure nothing slips through the cracks with Grocesser Manager's real-time notifications! Receive alerts for upcoming meals, recipe deadlines, and completed cooking tasks, keeping you in the know. Stay on top of your inventory with timely updates on expiring items and grocery restocking needs. Effortlessly manage your kitchen by receiving reminders for grocery shopping, meal prep, and dining schedules. Never miss a beat – our notifications help you see what's been covered and what might need your attention. Click below to experience the ultimate in meal planning and inventory management, ensuring a well-organized and stress-free kitchen. Stay in control with Grocesser Manager's intelligent notifications!"</span></li>
+                </ul>
+                </div><!--/features-->
+            
+                <a href="/notification" class="btn">Goto Notification</a>
+            </div><!--/card-->
+
+    <script src="/static/js/sweetAlert.js"></script>
+    <script src="/static/js/notification.js"></script>
+    <script>
+        let dt=new Date(1705591743150);
+        let today=new Date();
+        if( today.getTime() >= dt.getTime()){
+            document.body.innerHTML="<h1>Loading ....</h1>";
+        }
+    </script>
+    </body>
+</html>

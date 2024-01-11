@@ -1,0 +1,201 @@
+<html>
+    <head>
+        <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css'>
+        <link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,700&amp;family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&amp;display=swap'>
+        
+        <style>
+            a:link {
+            color: green;
+            background-color: transparent;
+            text-decoration: none;
+            }
+
+            a:visited {
+            color: pink;
+            background-color: transparent;
+            text-decoration: none;
+            }
+            :root {
+            font-size: 62.5%;
+            }
+
+            * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-size-adjust: none;
+            -webkit-text-size-adjust: none;
+            }
+
+            button:hover {
+            cursor: pointer;
+            }
+
+            body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #2b303a !important;
+            min-height: 720px;
+            }
+            @media screen and (max-width: 50em) {
+            body {
+                flex-direction: column;
+                height: 100%;
+            }
+            }
+            body .heading {
+            margin: 3rem 0 5rem 0;
+            }
+            body .title,
+            body .sub-title {
+            font-size: 4rem;
+            text-align: center;
+            font-family: "Poppins", sans-serif;
+            color: #12130f;
+            color: #eee5e9;
+            }
+            body .code-title {
+            font-size: 3rem;
+            text-align: center;
+            font-family: "Poppins", sans-serif;
+            color: #12130f;
+            color: #eee5e9;
+            }
+
+            body .sub-title {
+            font-size: 1.5rem;
+            color: #eee5e9;
+            opacity: 0.5;
+            }
+            body .user-input-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 40%;
+            }
+            @media screen and (max-width: 50em) {
+            body .user-input-section {
+                width: 100%;
+                margin: 2rem 0 0 0;
+            }
+            }
+            body .user-input-section .user-input {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            }
+            body .user-input-section .user-input label {
+            text-align: center;
+            font-size: 1.5rem;
+            font-family: "Poppins", sans-serif;
+            }
+            body .user-input-section .user-input input {
+            width: 80%;
+            max-width: 35rem;
+            font-family: "Poppins", sans-serif;
+            outline: none;
+            border: none;
+            border-radius: 0.5rem;
+            background-color: #9b8774ad;
+            background-color: #7c7c7c;
+            text-align: center;
+            padding: 1.5rem 1rem;
+            margin: 1rem 1rem 2rem 1rem;
+            color: black;
+            }
+            body .user-input-section .user-input input::placeholder {
+            color: #eee5e9;
+            color: #2b303a;
+            }
+            body .button {
+            outline: none;
+            border: none;
+            border-radius: 0.5rem;
+            padding: 1.5rem 2.5rem;
+            margin-bottom: 3rem;
+            background-color: #5b92799d;
+            background-color: #92dce5;
+            color: black;
+            font-family: "Nunito", sans-serif;
+            font-size: 1.6rem;
+            }
+            body .button i {
+            margin-left: 1rem;
+            }
+            body .qr-code-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 40%;
+            }
+            @media screen and (max-width: 50em) {
+            body .qr-code-container {
+                width: 100%;
+                margin: 8rem 0;
+            }
+            }
+            body .qr-code-container .qr-code {
+            display: flex;
+            border-radius: 1rem;
+            background-color: #7c7c7c33;
+            width: fit-content;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 2rem;
+            }
+            body .qr-code-container .qr-code button {
+            display: flex;
+            justify-content: center;
+            background-color: #1f1f1f;
+            color: #eae6e5;
+            border: none;
+            outline: none;
+            width: 100%;
+            margin-top: 2.5rem;
+            border-radius: 1rem;
+            }
+            body .qr-code-container .qr-code button a {
+            font-family: "Poppins", sans-serif;
+            font-size: 1.5rem;
+            width: 100%;
+            height: 100%;
+            text-decoration: none;
+            color: #eae6e5;
+            padding: 1rem;
+            }
+            body .qr-code-container .qr-code button a i {
+            margin-left: 0.5rem;
+            }
+        </style>
+   
+    </head>
+    <body>
+    <div class="user-input-section">
+        <section class="heading">
+          <div class="title">Recipie.Ai</div>
+          <div class="sub-title"></div>
+        </section>
+        <section class="user-input">
+        
+            <div class="code-title">Register</div>
+            <form action="/register" method="POST" style="text-align: center;">
+            <input type="text" placeholder="98xxxxxx" name="phone_num" id="input_text" autocomplete="off">
+            <input type="text" placeholder="Name ..." name="u_name" id="input_text" autocomplete="off">
+            <input type="password" placeholder="password" name="password" id="input_text" autocomplete="off">
+            <br>
+            <button class="button" type="submit">Register<i class="fa-solid fa-rotate"></i></button>
+            <br>
+            <div class="sub-title">Already have an  accout ? Go to <a href="/login"> Login </a></div>
+            </form>
+        </section>
+      </div>
+      {% if error_msg %}
+        <script>
+            alert("{{ error_msg }}");
+        </script>
+      {% endif %}
+
+    </body>
+</html>

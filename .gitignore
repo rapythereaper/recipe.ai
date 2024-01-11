@@ -1,0 +1,4 @@
+dump/
+recipe_recomendation/dataset/*.json
+Master.db
+User.db

@@ -1,0 +1,196 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="/static/css/main.css">
+        <link rel="stylesheet" href="/static/css/nav.css">
+        <link rel="stylesheet" href="/static/css/table.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+        <style>
+            h1{color:#EF47BC;
+                text-align: center;
+            }
+            .card{
+                width: calc(100% - 50px);
+            }
+            .button {
+                background-color: #04AA6D; /* Green */
+                border: none;
+                color: white;
+                padding: 15px 32px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                margin: 4px 2px;
+                cursor: pointer;
+                }
+
+                .button-primary {background-color: #5616c5;} /* Blue */
+                .button-error {background-color: #f44336;} /* Red */ 
+                .button-secondary{background-color: #ef47bc;}
+        </style>
+    </head>
+    <body>
+        <ul class="nav-ul">
+            <li class="nav-li"><a class="nav-a" href="/">Home</a></li>
+            <li class="nav-li"><a class="nav-a" href="/">{{user.u_name}}</a></li>
+            <li class="nav-li" style="float:right">
+            <form id="logout-form"action="/logout" method="POST"><a 
+             onclick="document.getElementById('logout-form').submit();"
+            class="nav-a">Logout</a></form></li>
+          </ul>
+          <h1>Meal Planning</h1>
+        
+        {% set days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"] %}
+        <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                {% for day in days%}
+                    <div class="swiper-slide">
+                            
+                    <div class="card "id="{{day}}">
+                    <h2>{{day}}</h2>
+                        <table>
+
+                            <!--caption>Statement Summary</caption-->
+                            <thead>
+                                <tr>
+                                <th scope="col">Time</th>
+                                <th scope="col">Meal</th>
+                                <th scope="col"> </th>
+                                </tr>
+                            </thead>
+                            {% if meal[day]%}
+                                <tbody>
+                                    {% for i in meal[day] %}
+                                        <tr>
+                                        <td data-label="Time">{{i["time"]}}</td>
+                                        <td data-label="Meal">{{i["food"]}}</td>
+                                        <td data-label="Button">
+                                            <button onclick="editMeal({{i}})" class="button button-secondary"><b>Edit</b></button>
+                                            <button onclick="deleteMeal({{i}})" class="button button-error"><b>Delete</b></button>
+                                        </td>
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            {% else %}
+                                <h3>No data inserted Yet!</h3>
+                            {% endif %}
+                        </table>
+                        <a class="btn" id="play_btn" onclick="addMeal('{{day}}')">Add Meals</a>
+                    </div>
+                </div>
+            {% endfor %}
+
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-pagination"></div>
+        </div>
+
+
+        <script src="static/js/sweetAlert.js"></script>
+        <script src="static/js/utility.js"></script>
+        <script src="/static/js/notification.js"></script>
+          <script>
+            var swiper = new Swiper(".mySwiper", {
+            pagination: {
+                el: ".swiper-pagination",
+                type: "progressbar",
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            });
+            swiper.slideTo({{slide_to}})
+  </script>
+        <script>
+            async function addMeal(day){
+               let res=await  Swal.fire({
+                    title: day,
+                    html:`
+                        <input id="pop-time" type="time" class="swal2-input"> 
+                        <input id="pop-food" type="text" class="swal2-input">
+                        `,
+                    preConfirm:()=>{
+                        return { time:document.getElementById("pop-time").value,
+                                food:document.getElementById("pop-food").value}
+                    }
+                });
+                if(res.isConfirmed){
+                    let data=res.value
+                    if(data.time==""|| data.food==""){
+                        Swal.fire({
+                            title: "Error",
+                            text: "Please Enter Valid non empty input?",
+                            icon: "error"
+                           });
+                        return
+                    }
+                    data.day=day
+                    data.action="add"
+                    console.log(data)
+                    postAsForm("/meal_planning",data)
+
+                }
+            }
+
+            async function deleteMeal(mealData){
+                let res=await  Swal.fire({
+                    title: "Are you sure you want to delete?",
+                    html:`
+                        Day:${mealData.day}, Time:${mealData.time}<br> 
+                        Meal:${mealData.food}
+                        `,
+                    icon: "error",
+                    
+                })
+                if(res.isConfirmed){
+                    data={}
+                    data.id=mealData.id;
+                    data.day=mealData.day
+                    data.action="delete"
+                    postAsForm("/meal_planning",data)
+
+                }
+
+                
+            }
+            
+            async function editMeal(mealData){
+                let res=await  Swal.fire({
+                    title: "Edit "+mealData.day,
+                    html:`
+                            <input id="pop-time" type="time" class="swal2-input" value="${mealData.time}"> 
+                            <input id="pop-food" type="text" class="swal2-input" value="${mealData.food}">
+                            `,
+                    preConfirm:()=>{
+                        return { time:document.getElementById("pop-time").value,
+                                food:document.getElementById("pop-food").value}
+                    }
+                    
+                })
+                if(res.isConfirmed){
+                    let data=res.value
+                    if(data.time==""|| data.food==""){
+                        Swal.fire({
+                            title: "Error",
+                            text: "Please Enter Valid non empty input!",
+                            icon: "error"
+                           });
+                        return
+                    }
+                    data.id=mealData.id
+                    data.day=mealData.day
+                    data.action="edit"
+                    console.log(data)
+                    postAsForm("/meal_planning",data)
+
+                }
+
+            }
+
+        </script>
+    </body>
+</html>

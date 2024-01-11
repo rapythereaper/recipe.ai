@@ -1,0 +1,139 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="/static/css/main.css">
+        <link rel="stylesheet" href="/static/css/nav.css">
+        <link rel="stylesheet" href="/static/css/table.css">
+        <link rel="stylesheet" href="/static/css/progress_bar.css">
+        <style>
+            h1{color:#EF47BC;
+                text-align: center;
+            }
+            .card{
+                width: calc(100% - 40px);
+            }
+            .button {
+                background-color: #04AA6D; /* Green */
+                border: none;
+                color: white;
+                padding: 15px 32px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                margin: 4px 2px;
+                cursor: pointer;
+                border-radius:  15px;
+                }
+
+                .btn-full{width: 100%;}
+                .button-primary {background-color: #5616c5;} /* Blue */
+                .button-error {background-color: #f44336;} /* Red */ 
+                .button-secondary{background-color: #ef47bc;}
+        </style>
+    </head>
+    <body>
+        <ul class="nav-ul">
+            <li class="nav-li"><a class="nav-a" href="/">Home</a></li>
+            <li class="nav-li"><a class="nav-a" href="/">{{user.u_name}}</a></li>
+            <li class="nav-li" style="float:right">
+            <form id="logout-form"action="/logout" method="POST"><a 
+             onclick="document.getElementById('logout-form').submit();"
+            class="nav-a">Logout</a></form></li>
+          </ul>
+          <h1>Inventory Management</h1>
+            {% if inventory%}
+                {% for i in inventory%}
+                    <div class="card " id="{{i['id']}}">
+                        <h2>{{i["label"]}}</h2>
+                        <table>
+                            <!--caption>Statement Summary</caption-->
+                            <thead>
+                                <tr>
+                                <th scope="col">Status</th>
+                                <th scope="col"> </th>
+                                </tr>
+                            </thead>
+                                <tbody>
+                                        <tr>
+                                        <td data-label="Status">
+                                            {{i["status"]}} %
+                                            <div class="progress">
+                                                <div class="progress-bar percentage_{{i['status']}}" ></div>
+                                            </div>
+                                        </td>
+                                        <td data-label="Button">
+                                            <button onclick="viewApiKey({{i}})" class="button button-secondary"><b>View Api Key</b></button>
+                                            <button onclick="deleteInventory({{i}})" class="button button-error"><b>Delete</b></button>
+                                        </td>
+                                        </tr>
+                                </tbody>
+                        </table>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <div class="card ">
+                    <h3>No Inventory setuped yet !</h3>
+                </div>
+            {% endif %}
+        <div class="card" style="background-color: rgba(241, 241, 242, 0.789);">
+        <a class="btn" id="play_btn" onclick="addInventory()">Add Inventory</a>
+        </div>
+        <script src="static/js/sweetAlert.js"></script>
+        <script src="static/js/utility.js"></script>
+        <script src="/static/js/notification.js"></script>
+        <script>
+            async function addInventory(){
+                let res=await  Swal.fire({
+                    title: "Inventory Label",
+                    html:`
+                        <input id="i-label" type="text" class="swal2-input"> 
+                        `,
+                    preConfirm:()=>{
+                        return { label:document.getElementById("i-label").value}
+                    }
+                });
+                if(res.isConfirmed){
+                    let data=res.value
+                    if(data.label==""){
+                        Swal.fire({
+                            title: "Error",
+                            text: "Please Enter Valid non empty input?",
+                            icon: "error"
+                           });
+                        return
+                    }
+                    data.action="add"
+                    console.log(data)
+                    postAsForm("/inventory",data)
+
+                }
+            }
+            
+            async function viewApiKey(data){
+                let res=await  Swal.fire({
+                    title:data.label,
+                    text:`API Key: " ${data.api_key} " `
+                });
+
+            }
+
+            async function deleteInventory(data){
+                let res=await  Swal.fire({
+                    title: "Are you sure you want to delete?",
+                    text:`Label: " ${data.label} " `,
+                    icon: "error",
+                    
+                })
+                if(res.isConfirmed){
+                    s_data={}
+                    s_data.id=data.id;
+                    s_data.action="delete"
+                    postAsForm("/inventory",s_data)
+
+                }
+
+                
+            }
+        </script>
+    </body>
+</html>
