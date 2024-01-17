@@ -55,10 +55,10 @@
                             </thead>
                                 <tbody>
                                         <tr>
-                                        <td data-label="Status">
-                                            {{i["status"]}} %
+                                        <td data-label="Status" >
+                                           <span id="{{i['id']}}_progress_text"> {{i["status"]}} % </span>
                                             <div class="progress">
-                                                <div class="progress-bar percentage_{{i['status']}}" ></div>
+                                                <div id="{{i['id']}}_progress_bar" class="progress-bar percentage_{{i['status']}}" ></div>
                                             </div>
                                         </td>
                                         <td data-label="Button">
@@ -134,6 +134,17 @@
 
                 
             }
+        </script>
+        <script>
+            setInterval(async ()=>{
+                let res=await fetch("/api/inventory");
+                let data=await res.json();
+                for(let i of data){
+                    document.getElementById(`${i.id}_progress_text`).innerText=`${i.status} %`;
+                    //console.log(document.getElementById(`${i.id}_progress_bar`))
+                    document.getElementById(`${i.id}_progress_bar`).className=`progress-bar percentage_${i.status}`
+                };
+            },1000*5)
         </script>
     </body>
 </html>

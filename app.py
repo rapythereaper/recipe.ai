@@ -153,14 +153,23 @@ def inventory():
         inventory.append(i.to_dict())
     return render_template("inventory.jinja",user=session["USER"],inventory=inventory)
 
-@app.route("/api/inventory",methods=["POST"])
+@app.route("/api/inventory",methods=["POST","GET"])
 def inventory_api():
-    api_key=request.form["api_key"]
-    status=request.form["status"]
-    record=db.Inventory.update({db.Inventory.status:status
-                                    }).where((db.Inventory.api_key==api_key))
-    record.execute()
-    return ""
+    if request.method=="GET":
+        if not session.get("USER"):
+            return "Login required",404
+        inventory=[]
+        for i in db.Inventory.select().where(db.Inventory.u_id==session["USER"]["id"]):
+            inventory.append(i.to_dict())
+        return inventory
+
+    if request.method=="POST":
+        api_key=request.form["api_key"]
+        status=request.form["status"]
+        record=db.Inventory.update({db.Inventory.status:status
+                                        }).where((db.Inventory.api_key==api_key))
+        record.execute()
+        return ""
 
 
 
